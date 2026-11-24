@@ -10,6 +10,9 @@ function logfiles --description "Generate prefixed date-based filenames (no .log
         if test "$i" -eq 0
             date -v -0d +"$prefix%Y-%m-%d"
         else
+            if test "$i" -eq 1
+                date -v -1d +"$prefix%Y-%m-%d"
+            end
             date -v -"$i"d +"$prefix%Y-%m-%d.log"
         end
     end
